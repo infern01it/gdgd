@@ -468,8 +468,25 @@ h6, .h6 {
 	position: relative;
 }
 
-.dropdown-heading {
+.dropdown {
 	position: relative;
+}
+
+.dropdown__head {
+	position: relative;
+}
+
+.dropdown__body {
+	position: absolute;
+	top: 100%;
+	left: 0;
+}
+
+.dropdown:focus {
+	outline: none;
+}
+
+.dropdown-head {
 	height: 50px;
 	width: 100%;
 	background-color: #fff;
@@ -478,17 +495,22 @@ h6, .h6 {
 	-webkit-border-radius: 25px;
 	border-radius: 25px;
 	padding: 0 25px;
-	-webkit-transition: all 0.2s ease-in-out;
-	-o-transition: all 0.2s ease-in-out;
-	transition: all 0.2s ease-in-out;
-	font-family: 'FuturaPT';
-	font-weight: 400;
-	font-size: 15px;
-	line-height: 20px;
-	color: #1f1f1f;
+	cursor: pointer;
 }
 
-.dropdown-heading-value {
+.dropdown-head.expanded {
+	-webkit-border-bottom-left-radius: 0px;
+	border-bottom-left-radius: 0px;
+	-webkit-border-bottom-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
+
+.dropdown-head.focus {
+	-webkit-box-shadow: 0px 5px 15px 0 rgba(0, 0, 0, 0.2);
+	box-shadow: 0px 5px 15px 0 rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-head__value {
 	position: absolute;
 	top: 50%;
 	left: 20px;
@@ -497,21 +519,112 @@ h6, .h6 {
 	transform: translateY(-50%);
 }
 
-.dropdown-heading-dropdown-arrow {
+.dropdown-head__value span {
+	font-family: 'FuturaPT';
+	font-weight: 400;
+	font-size: 15px;
+	line-height: 20px;
+	color: #1f1f1f;
+	-webkit-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+}
+
+.dropdown-head__value span.empty {
+	font-family: 'FuturaFuturis';
+	font-weight: 300;
+	color: #a9aeb4;
+}
+
+.dropdown-head__arrow {
 	position: absolute;
 	top: 0;
 	right: 0;
 }
 
-.dropdown-heading-dropdown-arrow span {
+.dropdown-head__arrow span {
 	display: inline-block;
 	width: 50px;
 	height: 50px;
 	background-image: url("/img/ui-icon/arrow-bottom.svg");
 }
 
-.select-panel input[type="text"] {
+.dropdown-body {
+	min-width: 120%;
+	height: auto;
+	background-color: #fff;
+	-webkit-border-radius: 25px;
+	border-radius: 25px;
+	-webkit-border-top-left-radius: 0px;
+	border-top-left-radius: 0px;
+	padding: 25px 0;
+}
+
+.select-list {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.select-list__label {
+	margin: 0;
+	position: relative;
+	display: block;
+	width: 100%;
+	height: 40px;
+	padding-left: 53px;
+	cursor: pointer;
+	-webkit-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+}
+
+.select-list__label > span > span {
+	font-family: 'FuturaFuturis';
+	font-weight: 300;
+	font-size: 15px;
+	line-height: 40px;
+}
+
+.select-list__label > span > span::before, .select-list__label > span > span::after {
+	content: '';
+	display: block;
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	top: 10px;
+	left: 24px;
+	-webkit-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+}
+
+.select-list__label > span > span::before {
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	border: 2px solid #a9aeb4;
+}
+
+.select-list__label > span > span::after {
+	background-image: url(/img/ui-icon/checkbox.svg);
+	opacity: 0;
+}
+
+.select-list__label > span > input {
 	display: none;
+}
+
+.select-list__label.hover, .select-list__label.focus {
+	background-color: #f2f2f2;
+}
+
+.select-list__label.checked > span > span::before {
+	border-color: #2371c9;
+}
+
+.select-list__label.checked > span > span::after {
+	opacity: 1;
 }
 
 .header {
@@ -2085,6 +2198,7 @@ h6, .h6 {
 }
 
 .page-map__filter {
+	z-index: 30;
 	top: 70px;
 	width: 100%;
 	height: 85px;
