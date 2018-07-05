@@ -580,14 +580,14 @@ h6, .h6 {
 	transition: all 0.2s ease-in-out;
 }
 
-.select-list__label > span > span {
+.select-list__label > span {
 	font-family: 'FuturaFuturis';
 	font-weight: 300;
 	font-size: 15px;
 	line-height: 40px;
 }
 
-.select-list__label > span > span::before, .select-list__label > span > span::after {
+.select-list__label > span::before, .select-list__label > span::after {
 	content: '';
 	display: block;
 	width: 20px;
@@ -600,18 +600,18 @@ h6, .h6 {
 	transition: all 0.2s ease-in-out;
 }
 
-.select-list__label > span > span::before {
+.select-list__label > span::before {
 	-webkit-border-radius: 2px;
 	border-radius: 2px;
 	border: 2px solid #a9aeb4;
 }
 
-.select-list__label > span > span::after {
+.select-list__label > span::after {
 	background-image: url(/img/ui-icon/checkbox.svg);
 	opacity: 0;
 }
 
-.select-list__label > span > input {
+.select-list__label > input {
 	display: none;
 }
 
@@ -619,11 +619,11 @@ h6, .h6 {
 	background-color: #f2f2f2;
 }
 
-.select-list__label.checked > span > span::before {
+.select-list__label.checked > span::before {
 	border-color: #2371c9;
 }
 
-.select-list__label.checked > span > span::after {
+.select-list__label.checked > span::after {
 	opacity: 1;
 }
 
@@ -2112,7 +2112,7 @@ h6, .h6 {
 	}
 }
 
-.home-filter {
+.home-filter__container {
 	-webkit-border-radius: 10px;
 	border-radius: 10px;
 	background-color: rgba(255, 255, 255, 0.2);
@@ -2142,7 +2142,7 @@ h6, .h6 {
 }
 
 @media (max-width: 1279.98px) {
-	.home-filter {
+	.home-filter__container {
 		padding: 30px 5px 40px;
 	}
 
@@ -2163,7 +2163,7 @@ h6, .h6 {
 }
 
 @media (max-width: 767.98px) {
-	.home-filter {
+	.home-filter__container {
 		padding: 0;
 		background-color: transparent;
 		-webkit-box-shadow: none;
