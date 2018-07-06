@@ -10,8 +10,10 @@ import {syncHistoryWithStore} from 'react-router-redux';
 
 import reducers from 'reducers';
 
-import Home from 'containers/home';
-import MapPage from 'containers/mapPage';
+import Home from 'containers/Home';
+import AllCity from 'containers/AllCity';
+import Plots from 'containers/Plots';
+import Array from 'containers/Array';
 
 const store = createStore(reducers, composeWithDevTools(
 	applyMiddleware(thunk)
@@ -23,7 +25,9 @@ ReactDOM.render(
 	<Provider store={store}>
 		<Router history={history}>
 			<Route path="/" component={Home} />
-			<Route path="/map" component={MapPage} />
+			<Route path="/all-city" component={AllCity} />
+			<Route path="/plots" component={Plots} />
+			<Route path="/array/:id" component={Array} />
 		</Router>
 	</Provider>,
 	document.getElementById('root')
