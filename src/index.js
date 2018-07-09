@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 
@@ -25,7 +25,14 @@ ReactDOM.render(
 	<Provider store={store}>
 		<Router history={history}>
 			<Route path="/" component={Home} />
-			<Route path="/all-city" component={AllCity} />
+			<Route path="/all-city" component={() => <AllCity />} />
+			<Fragment>
+			{
+				['alushta', 'simpheropol', 'sudak'].map((el, id) => {
+				return <Route path={`/${el}`} component={() => <AllCity filter={{city_id: [id]}} />} key={id} />;
+				})
+			}
+			</Fragment>
 			<Route path="/plots" component={Plots} />
 			<Route path="/array/:id" component={Array} />
 		</Router>
