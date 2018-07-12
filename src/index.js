@@ -25,15 +25,15 @@ ReactDOM.render(
 	<Provider store={store}>
 		<Router history={history}>
 			<Route path="/" component={Home} />
-			<Route path="/all-city" component={() => <AllCity />} />
+			<Route path="/all-city" component={() => <AllCity filter={{city_id: []}} />} />
 			<Fragment>
-			{
-				['alushta', 'simpheropol', 'sudak'].map((el, id) => {
-				return <Route path={`/${el}`} component={() => <AllCity filter={{city_id: [id]}} />} key={id} />;
-				})
-			}
+				{
+					['alushta', 'simpheropol', 'sudak'].map((el, id) => {
+						return <Route path={`/${el}`} component={() => <AllCity filter={{city_id: [id]}} />} key={id} />;
+					})
+				}
 			</Fragment>
-			<Route path="/plots" component={Plots} />
+			<Route path="/plots/:id" component={Plots} />
 			<Route path="/array/:id" component={Array} />
 		</Router>
 	</Provider>,
