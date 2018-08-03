@@ -14,6 +14,7 @@ import Home from 'containers/Home';
 import AllCity from 'containers/AllCity';
 import Plots from 'containers/Plots';
 import Array from 'containers/Array';
+import Contacts from 'containers/Contacts';
 
 const store = createStore(reducers, composeWithDevTools(
 	applyMiddleware(thunk)
@@ -28,13 +29,27 @@ ReactDOM.render(
 			<Route path="/all-city" component={() => <AllCity filter={{city_id: []}} />} />
 			<Fragment>
 				{
-					['alushta', 'simpheropol', 'sudak'].map((el, id) => {
-						return <Route path={`/${el}`} component={() => <AllCity filter={{city_id: [id]}} />} key={id} />;
+					[
+						{
+							id: 5,
+							name: 'alushta'
+						},
+						{
+							id: 6,
+							name: 'simferopol'
+						},
+						{
+							id: 2,
+							name: 'sudak'
+						}
+					].map((el, id) => {
+						return <Route path={`/${el.name}`} component={() => <AllCity filter={{city_id: [el.id]}} />} key={id} />;
 					})
 				}
 			</Fragment>
 			<Route path="/plots/:id" component={Plots} />
 			<Route path="/array/:id" component={Array} />
+			<Route path="/contacts" component={Contacts} />
 		</Router>
 	</Provider>,
 	document.getElementById('root')
