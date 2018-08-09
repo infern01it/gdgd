@@ -26,6 +26,7 @@ ReactDOM.render(
 	<Provider store={store}>
 		<Router history={history}>
 			<Route path="/" component={Home} />
+			{/* <Route path="/arrays" component={() => <AllCity filter={{}} />} /> */}
 			<Route path="/all-city" component={() => <AllCity filter={{city_id: []}} />} />
 			<Fragment>
 				{

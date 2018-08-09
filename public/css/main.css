@@ -1063,7 +1063,11 @@ h6, .h6 {
 	font-family: 'FuturaPT';
 	font-weight: 400;
 	color: #fff !important;
-	text-decoration: none !important;
+	text-decoration: none;
+}
+
+.hdr-phone:hover {
+	text-decoration: underline;
 }
 
 @media (max-width: 1279.98px) {
@@ -2069,6 +2073,9 @@ h6, .h6 {
 	width: 970px;
 	height: 280px;
 	background-image: url("/img/popup.jpg");
+	-webkit-background-size: cover;
+	background-size: cover;
+	background-position: 50% 50%;
 }
 
 .popup.display {
@@ -2080,6 +2087,21 @@ h6, .h6 {
 
 .popup.visible {
 	opacity: 1;
+}
+
+@media (max-width: 991.98px) {
+	.popup__wrap {
+		width: -webkit-calc(100% - 48px);
+		width: calc(100% - 48px);
+	}
+}
+
+@media (max-width: 767.98px) {
+	.popup__wrap {
+		width: -webkit-calc(100% - 30px);
+		width: calc(100% - 30px);
+		height: auto;
+	}
 }
 
 .popup-wrap {
@@ -2126,10 +2148,12 @@ h6, .h6 {
 
 .popup-wrap__title {
 	margin-bottom: 13px;
+	line-height: 24px;
 }
 
 .popup-wrap__desc {
 	margin-bottom: 42px;
+	line-height: 17px;
 }
 
 .popup-wrap__title, .popup-wrap__desc {
@@ -2154,6 +2178,36 @@ h6, .h6 {
 .popup-wrap__input, .popup-wrap__button {
 	margin: 0 15px;
 	width: 215px;
+}
+
+@media (max-width: 767.98px) {
+	.popup-wrap {
+		padding: 27px 30px 30px;
+	}
+
+	.popup-wrap__title {
+		margin-bottom: 16px;
+	}
+
+	.popup-wrap__desc {
+		margin-bottom: 20px;
+	}
+
+	.popup-wrap__form {
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-webkit-flex-direction: column;
+		-ms-flex-direction: column;
+		flex-direction: column;
+	}
+
+	.popup-wrap__input, .popup-wrap__button {
+		margin: 0;
+	}
+
+	.popup-wrap__input {
+		margin-bottom: 30px;
+	}
 }
 
 .main {
