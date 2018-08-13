@@ -1123,6 +1123,7 @@ h6, .h6 {
 
 .hdr-cb-dd {
 	padding: 30px 35px 40px;
+	min-height: 245px;
 	text-align: center;
 }
 
@@ -1133,6 +1134,13 @@ h6, .h6 {
 	margin: 0 0 20px;
 }
 
+.hdr-cb-dd__desc {
+	font-size: 15px;
+	line-height: 20px;
+	color: #ffffff;
+	margin: 0;
+}
+
 .hdr-cb-dd__input {
 	width: 100%;
 	margin: 0 0 30px;
@@ -1140,6 +1148,30 @@ h6, .h6 {
 
 .hdr-cb-dd__button {
 	width: 100%;
+}
+
+.hdr-cb-dd_submit {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+}
+
+.hdr-cb-dd_submit .hdr-cb-dd__title {
+	margin: 0 0 12px;
 }
 
 .footer {
