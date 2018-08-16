@@ -471,6 +471,8 @@ h6, .h6 {
 		-webkit-flex-direction: column-reverse;
 		-ms-flex-direction: column-reverse;
 		flex-direction: column-reverse;
+		-webkit-border-radius: 0;
+		border-radius: 0;
 		padding: 0;
 	}
 
@@ -556,6 +558,12 @@ h6, .h6 {
 
 .dropdown:focus {
 	outline: none;
+}
+
+@media (max-width: 767.98px) {
+	.dropdown__body {
+		position: relative;
+	}
 }
 
 .dropdown-head {
@@ -1080,7 +1088,7 @@ h6, .h6 {
 	position: relative;
 }
 
-.hdr-callback:hover .hdr-callback__dropdown {
+.hdr-callback.open .hdr-callback__dropdown {
 	display: block;
 }
 
@@ -1538,6 +1546,16 @@ h6, .h6 {
 }
 
 .card-array__img {
+	position: relative;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+}
+
+.card-array__img img {
+	position: absolute;
+	top: 0;
+	left: 0;
 	width: 100%;
 	height: 100%;
 	-o-object-fit: cover;
@@ -1548,6 +1566,7 @@ h6, .h6 {
 
 .card-array__count {
 	position: absolute;
+	z-index: 2;
 	top: 20px;
 	right: 20px;
 	display: block;
@@ -1564,6 +1583,7 @@ h6, .h6 {
 
 .card-array__btn-buy {
 	position: absolute;
+	z-index: 3;
 	bottom: 20px;
 	left: 50%;
 	-webkit-transform: translateX(-50%);
@@ -1659,6 +1679,18 @@ h6, .h6 {
 		flex: 0 0 60%;
 		max-width: 60%;
 	}
+
+	.card-array__img::before {
+		content: '';
+		float: left;
+		padding-bottom: 56.25%;
+	}
+
+	.card-array__img::after {
+		content: '';
+		display: table;
+		clear: both;
+	}
 }
 
 @media (max-width: 767.98px) {
@@ -1686,6 +1718,10 @@ h6, .h6 {
 	.card-array__count {
 		top: 30px;
 		right: 30px;
+	}
+
+	.card-array__btn-buy {
+		bottom: 30px;
 	}
 
 	.card-array__title {
@@ -1778,8 +1814,8 @@ h6, .h6 {
 
 .card-site__adress {
 	font-size: 15px;
-	line-height: 15px;
-	height: 30px;
+	line-height: 20px;
+	max-height: 40px;
 	overflow: hidden;
 	-o-text-overflow: ellipsis;
 	text-overflow: ellipsis;
@@ -2513,7 +2549,7 @@ h6, .h6 {
 	}
 }
 
-.page-map__filter, .page-map__cards, .page-map__ymap {
+.page-map__filter, .page-map__cards, .page-map__ymap, .page-map__toggle-navs {
 	position: fixed;
 }
 
@@ -2521,6 +2557,13 @@ h6, .h6 {
 	top: 155px;
 	height: -webkit-calc(100vh - 155px);
 	height: calc(100vh - 155px);
+}
+
+.page-map__toggle-navs {
+	z-index: 40;
+	top: 70px;
+	left: 0;
+	width: 100%;
 }
 
 .page-map__filter {
@@ -2658,11 +2701,17 @@ h6, .h6 {
 .map-cards__title {
 	margin: 0;
 	margin-bottom: 20px;
+	color: #4a4a4c;
+}
+
+.map-cards__title:hover {
+	color: #4a4a4c;
 }
 
 .map-cards__subtitle {
 	display: block;
 	margin: 0;
+	color: #4a4a4c;
 }
 
 .map-cards__back {
