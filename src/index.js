@@ -28,28 +28,7 @@ ReactDOM.render(
 		<Router history={history}>
 			<Route component={App}>
 				<Route path="/" component={Home} />
-				{/* <Route path="/arrays" component={() => <AllCity filter={{}} />} /> */}
-				<Route path="/all-city" component={() => <AllCity filter={{city_id: []}} />} />
-				<Fragment>
-					{
-						[
-							{
-								id: 5,
-								name: 'alushta'
-							},
-							{
-								id: 6,
-								name: 'simferopol'
-							},
-							{
-								id: 2,
-								name: 'sudak'
-							}
-						].map((el, id) => {
-							return <Route path={`/${el.name}`} component={() => <AllCity filter={{city_id: [el.id]}} />} key={id} />;
-						})
-					}
-				</Fragment>
+				<Route path="/all-city" component={AllCity} />
 				<Route path="/plots/:id" component={Plots} />
 				<Route path="/array/:id" component={Array} />
 				<Route path="/contacts" component={Contacts} />
