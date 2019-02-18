@@ -15,6 +15,7 @@ import Home from 'containers/Home';
 import AllCity from 'containers/AllCity';
 import Plots from 'containers/Plots';
 import Array from 'containers/Array';
+import Partners from 'containers/Partners';
 import Contacts from 'containers/Contacts';
 
 const store = createStore(reducers, composeWithDevTools(
@@ -31,6 +32,7 @@ ReactDOM.render(
 				<Route path="/all-city" component={AllCity} />
 				<Route path="/plots/:id" component={Plots} />
 				<Route path="/array/:id" component={Array} />
+				<Route path="/partners" component={Partners} />
 				<Route path="/contacts" component={Contacts} />
 			</Route>
 		</Router>
